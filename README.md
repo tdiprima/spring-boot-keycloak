@@ -8,3 +8,10 @@ Dependencies:
 * Lombok
 * Spring Security
 * OAuth2 Resource Server
+
+```sh
+mvn compile
+mvn spring-boot:run
+```
+
+Get token and pass to http://localhost:8081/api/v1/demo in Postman.
