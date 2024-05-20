@@ -14,4 +14,4 @@ mvn compile
 mvn spring-boot:run
 ```
 
-Get token and pass to http://localhost:8081/api/v1/demo in Postman.
+Get token and pass to http://localhost:8081/api/v1/demo and */hello2 in Postman.
