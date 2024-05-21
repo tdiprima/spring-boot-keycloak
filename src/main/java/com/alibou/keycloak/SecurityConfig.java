@@ -1,5 +1,6 @@
 package com.alibou.keycloak;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -11,7 +12,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
+    private JwtAuthConverter jwtAuthConverter;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // Configuration for this security
@@ -25,7 +29,8 @@ public class SecurityConfig {
         // Resource server to use to validate the token
         http
                 .oauth2ResourceServer()
-                .jwt();
+                .jwt()
+                        .jwtAuthenticationConverter(jwtAuthConverter);
 
         // Session management policy
         http
