@@ -9,6 +9,8 @@ Dependencies:
 * Spring Security
 * OAuth2 Resource Server
 
+[Building Java Projects with Maven](https://spring.io/guides/gs/maven)
+
 ```sh
 mvn compile
 mvn spring-boot:run
