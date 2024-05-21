@@ -67,6 +67,7 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
         Map<String, Object> resource = (Map<String, Object>) resourceAccess.get(resourceId);
         Collection<String> resourceRoles = (Collection<String>) resource.get("roles");
 
+        // Convert roles to GrantedAuthority objects with the "ROLE_" prefix
         return resourceRoles.stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
                 .collect(Collectors.toSet());
