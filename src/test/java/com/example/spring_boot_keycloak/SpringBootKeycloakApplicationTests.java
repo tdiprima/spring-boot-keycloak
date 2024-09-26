@@ -1,10 +1,10 @@
-package com.alibou.keycloak;
+package com.example.spring_boot_keycloak;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KeycloakApplicationTests {
+class SpringBootKeycloakApplicationTests {
 
 	@Test
 	void contextLoads() {

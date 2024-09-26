@@ -1,15 +1,28 @@
+keycloak:
+  realm: Halcyon
+  auth-server-url: http://localhost:8080/realms/Halcyon/protocol/openid-connect/auth
+  resource: my-client
+  credentials:
+    secret: waFGOW2E8Set3UhhayBPgOHi9tSl2Pob
+  ssl-required: external
+  public-client: true
+  principal-attribute: preferred_username
 spring:
   security:
     oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8080/realms/Alibou
-          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+      client:
+        registration:
+          keycloak:
+            client-id: my-client
+            client-secret: waFGOW2E8Set3UhhayBPgOHi9tSl2Pob
+            scope: openid
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/Halcyon
 server:
   port: 8081
-
-jwt:
-  auth:
-    converter:
-      resource-id: alibou-rest-api
-      principal-attribute: preferred_username
+  error:
+    whitelabel:
+      enabled: false
