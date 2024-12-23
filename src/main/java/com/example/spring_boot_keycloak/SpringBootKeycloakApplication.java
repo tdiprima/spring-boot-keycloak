@@ -1,3 +1,5 @@
+// This code represents a basic Spring Boot application using Keycloak for authentication. 
+// The main method upon execution, runs the SpringBootKeycloakApplication class, which starts up the Spring Boot application.
 package com.example.spring_boot_keycloak;
 
 import org.springframework.boot.SpringApplication;

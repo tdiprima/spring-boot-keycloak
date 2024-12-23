@@ -1,3 +1,10 @@
+/*
+ * This is a Spring Boot security configuration file that manages authentication and authorization.
+ * This class uses OIDC via Keycloak for user authentication where only authenticated users can access any request apart from '/public/**' endpoints.
+ * It handles redirection to Keycloak's login page on OAuth2 login, redirects to home page after successful login, and establishes logout handling for OIDC.
+ * The handlers are injected by Spring as Beans.
+ * It also handles the OIDC logout scenario providing a redirection after successful logout.
+ */
 package com.example.spring_boot_keycloak;
 
 import org.springframework.context.annotation.Bean;
